@@ -1,4 +1,9 @@
 .wellcome {
     border: 1px solid red;
 
+    .backFilter {
+        background-image: url("./../resources/images/bg-mountains.webp");
+        background-size: cover;
+        filter: grayscale(0.6)
+    }
 }
