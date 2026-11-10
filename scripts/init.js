@@ -1,15 +1,24 @@
-const alertBase = (base) => {
-    console.info(base === "" ? "local" : "gitPages")
+const isLocal = window.location.hostname === "localhost" || "127.0.0.1"
+const base = isLocal ? window.location.origin : window.location.origin + "/cv"
+
+const alertBase = () => { console.info("local mode") }
+
+const controls = {
+    reactives: base + "/scripts/controls/reactives_control.js"
+}
+
+const controlInit = () => {
+
 }
 
 const init = async () => {
-    const isLocal = window.location.hostname === "127.0.0.1"
-    const base = isLocal ? "" : "/cv"
-    alertBase(base)
+    base === "" && alertBase()
 
     let level = await import(base + "/scripts/level.js")
     level = await level.init()
-    console.log(level)
+
+    await level.helper.resolve.paths(controls)
+    console.log(controls)
 }
 
 init()

@@ -1,8 +1,10 @@
-const levelVersion = "debe54d792df8016f90240e8247926fcd9484c99"
+const levelVersion = "7402e6a9c41659d059ab68734e58ef26b36c0ce1"
 const serverUrl = `https://cdn.jsdelivr.net/gh/coder-ajs/lev@${levelVersion}`
 
 let levelHelpers = [
-    "dom"
+    "resolve",
+    "reactive",
+    "viewPort"
 ]
 
 export const init = async () => {
@@ -10,6 +12,6 @@ export const init = async () => {
     loader = await import(loader)
 
     return {
-        helpers: await loader.get({mode: "helpers", items: levelHelpers})
+        helper: await loader.get({mode: "helpers", items: levelHelpers})
     }
 }
