@@ -9,9 +9,12 @@
     --wellcomeHeight: 100vh;
 
     /* scroll */
-    --scrollPos: 100vh;
+    --scrollPos: 0;
     --scrollHeight: 300vh;
 
     /* footer */
     --footerHeight: 100vh;
+
+    /* transitions */
+    --scroll: 1000ms cubic-bezier(0.25, 1, 0.5, 1);
 }

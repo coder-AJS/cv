@@ -1,6 +1,8 @@
 .scroll-layer {    
-    top: var(--scrollPos);
+    top: var(--wellcomeHeight);
+    transform: translateY(calc(var(--scrollPos) * -1));
     width: 100%;
     height: var(--scrollHeight);
-    border: 10px solid green;
+    border: 1px solid green;
+    transition: var(--scroll);
 }

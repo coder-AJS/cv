@@ -1,3 +1,5 @@
+import * as scroll from "./scroll_control.js"
+
 export const init = (helper) => {
     const reactives = {}
 
@@ -7,6 +9,7 @@ export const init = (helper) => {
         value: 0,
         listeners: (v) => {
             console.log(v, "v")
+            scroll.moveLayer(helper, v)
         }
     })
 
