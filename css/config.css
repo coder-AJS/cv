@@ -5,5 +5,13 @@
 }
 
 :root {
+    /* wellcome */
+    --wellcomeHeight: 100vh;
 
+    /* scroll */
+    --scrollPos: 100vh;
+    --scrollHeight: 300vh;
+
+    /* footer */
+    --footerHeight: 100vh;
 }

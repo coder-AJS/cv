@@ -1,0 +1,6 @@
+.scroll-layer {    
+    top: var(--scrollPos);
+    width: 100%;
+    height: var(--scrollHeight);
+    border: 10px solid green;
+}

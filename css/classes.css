@@ -1,4 +1,4 @@
-/* sizes */
+/* size */
 .max {
     width: 100%;
     height: 100%;
@@ -7,4 +7,13 @@
 .maxVP {
     width: 100vw;
     height: 100vh;
+}
+
+/* position */
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative;
 }
