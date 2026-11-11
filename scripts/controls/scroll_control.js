@@ -13,7 +13,6 @@ export const init = (reactives, helper) => {
 }
 
 const updateReactive = (reactives, distance, scrollLimit) => {
-    console.log(distance)
     let nextStep = distance
     const calculedStep = reactives.viewPort.dynamicScroll + distance
     if (calculedStep < 0 || calculedStep > scrollLimit) nextStep = 0
