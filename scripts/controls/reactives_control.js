@@ -18,5 +18,11 @@ export const init = (helper) => {
         }
     })
 
+    reactives.viewPort.add({
+        name: "onSection",
+        value: "wellcome",
+        listeners: (v) => {console.log(v)}
+    })
+
     return reactives
 }

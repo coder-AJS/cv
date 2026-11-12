@@ -32,3 +32,14 @@ const getScrollLimits = (helper) => {
 }
 
 export const moveLayer = (helper, v) => { helper.css.setVar("scrollPos", v + "vh") }
+
+const sections = [
+    { name: "wellcome", ref: document.querySelector("#wellcome-section"), start: 0, end: 100 },
+    { name: "section1", ref: document.querySelector("#section1"), start: 100, end: 200 }
+]
+
+export const detectSection = (v, reactives) => {
+    const detected = sections.find(item => v >= item.start && v < item.end).name || "body"
+    const lastSection = reactives.viewPort.onSection
+    lastSection !== detected && (reactives.viewPort.onSection = detected)
+}
