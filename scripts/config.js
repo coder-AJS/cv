@@ -1,3 +1,3 @@
 export const config = {
-    wheelStep: 25
+    wheelSteps: 5
 }

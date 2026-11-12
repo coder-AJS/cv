@@ -1,5 +1,7 @@
-export const setBackSize = (helper, v) => {
-    const originBackSize = parseFloat(helper.css.getVar("wellcomeBackSize"))
-    const resize = (originBackSize / 100) * (100 - v) + 100
-    helper.css.setVar("wellcomeBackSize", resize + "%")
+import { config } from "./../config.js"
+
+export const setBackSize = (helper, v, size) => {
+    const step = (size - 1) / (100 / (100 / config.wheelSteps))
+    const resize = size - (step * (v / (100 / config.wheelSteps)))
+    helper.css.setVar("wellcome_BGsize", resize)
 }

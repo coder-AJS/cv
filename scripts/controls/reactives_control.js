@@ -2,6 +2,12 @@ import * as scroll from "./scroll_control.js"
 import * as wellcome from "./wellcome.js"
 
 export const init = (helper) => {
+    const staticConf = {
+        wellcome: {
+            backSize: Number(helper.css.getVar("wellcome_BGsize"))
+        }
+    }
+
     const reactives = {}
     /* viewPort */
     reactives.viewPort = helper.reactive.newReactive()
@@ -12,9 +18,9 @@ export const init = (helper) => {
         listeners: (v) => {
             scroll.moveLayer(helper, v)
             scroll.detectSection(v, reactives)
-            if (v > 0 && v <= 100) {
-/*                 wellcome.setBackSize(helper, v, wellcome_backSize)
- */            }
+            if (v >= 0 && v <= 100) {
+                wellcome.setBackSize(helper, v, staticConf.wellcome.backSize)
+            }
         }
     })
 

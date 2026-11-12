@@ -7,7 +7,7 @@
 :root {
     /* wellcome */
     --wellcomeHeight: 100vh;
-    --wellcome_BGsize: 4;
+    --wellcome_BGsize: 6;
 
     /* scroll */
     --scrollPos: 0;

@@ -7,8 +7,8 @@ export const init = (reactives, helper) => {
 
     window.addEventListener("wheel", (e) => {
         const distance = Math.sign(e.deltaY) === 1
-            ? config.wheelStep
-            : -config.wheelStep
+            ? 100 / config.wheelSteps
+            : 100 / -config.wheelSteps 
         updateReactive(reactives, distance, scrollLimit)
     })
 
