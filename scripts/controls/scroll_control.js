@@ -2,6 +2,7 @@ import { config } from "./../config.js"
 
 export const init = (reactives, helper) => {
     helper.viewPort.blockScroll(document.body, true)
+    /* statics */
     const scrollLimit = getScrollLimits(helper)
 
     window.addEventListener("wheel", (e) => {
@@ -9,6 +10,10 @@ export const init = (reactives, helper) => {
             ? config.wheelStep
             : -config.wheelStep
         updateReactive(reactives, distance, scrollLimit)
+    })
+
+    window.addEventListener("resize", () => {
+        reactives.viewPort.width = window.innerWidth
     })
 }
 

@@ -3,9 +3,10 @@
 
     .filteredBack {
         background-image: url("./../resources/images/bg-mountains.webp");
-        background-size: var(--wellcomeBackSize);
+        background-size: cover;
         background-position: center;
         filter: grayscale(0.6);
+        transform: scale(var(--wellcome_BGsize));
         transition: var(--scroll);
     }
 }
