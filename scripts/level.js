@@ -1,4 +1,4 @@
-const levelVersion = "47d4a823b697de4259134818c73b8a61adb84414"
+const levelVersion = "60b0739283783da04cb5469dc9e21d496f85262a"
 const serverUrl = `https://cdn.jsdelivr.net/gh/coder-ajs/lev@${levelVersion}`
 
 let levelHelpers = [
