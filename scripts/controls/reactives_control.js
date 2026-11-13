@@ -18,7 +18,7 @@ export const init = (helper) => {
         listeners: (v) => {
             scroll.moveLayer(helper, v)
             scroll.detectSection(v, reactives)
-            if (v >= 0 && v <= 100) {
+            if (reactives.viewPort.onSection === "wellcome" || v <= 100) {
                 wellcome.setBackSize(helper, v, staticConf.wellcome.backSize)
             }
         }

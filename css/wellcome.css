@@ -1,11 +1,12 @@
 .wellcome {
     border: 1px solid red;
+    background-color: var(--fakeBack);
+    filter: grayscale(0.6);
 
     .filteredBack {
         background-image: url("./../resources/images/bg-mountains.webp");
         background-size: cover;
         background-position: center;
-        filter: grayscale(0.6);
         transform: scale(var(--wellcome_BGsize));
         transition: var(--scroll);
     }

@@ -17,3 +17,26 @@
 .relative {
     position: relative;
 }
+
+/* flex */
+.FCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.FRow {
+    display: flex;
+}
+
+.FCol {
+    display: flex;
+    flex-direction: column;
+}
+
+/*  */
+.contentBox {
+    width: 100%;
+    max-width: 1500px;
+    height: calc(100% - 100px);
+}

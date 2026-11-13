@@ -8,6 +8,7 @@
     /* wellcome */
     --wellcomeHeight: 100vh;
     --wellcome_BGsize: 6;
+    --fakeBack: rgb(9, 26, 47);
 
     /* scroll */
     --scrollPos: 0;
@@ -17,5 +18,5 @@
     --footerHeight: 100vh;
 
     /* transitions */
-    --scroll: 1000ms cubic-bezier(0.25, 1, 0.5, 1);
+    --scroll: 1000ms cubic-bezier(0.5, 1, 0.5, 1);
 }

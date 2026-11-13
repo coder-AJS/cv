@@ -1,7 +1,6 @@
 import { config } from "./../config.js"
 
 export const init = (reactives, helper) => {
-    helper.viewPort.blockScroll(document.body, true)
     /* statics */
     const scrollLimit = getScrollLimits(helper)
 
@@ -39,7 +38,7 @@ const sections = [
 ]
 
 export const detectSection = (v, reactives) => {
-    const detected = sections.find(item => v >= item.start && v < item.end).name || "body"
+    const detected = sections.find(item => v >= item.start && v < item.end)?.name || "body"
     const lastSection = reactives.viewPort.onSection
     lastSection !== detected && (reactives.viewPort.onSection = detected)
 }
