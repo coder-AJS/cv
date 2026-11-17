@@ -9,9 +9,9 @@ const controls = {
     scroll: base + "/scripts/controls/scroll_control.js"
 }
 
-const controlInit = (controls, helper) => {
+const controlInit = (controls, helper, base) => {
     /* prepare */
-    controls.animation.init(helper)
+    controls.animation.init(helper, base)
     const reactives = controls.reactives.init(helper)
     controls.scroll.init(reactives, helper)
 }

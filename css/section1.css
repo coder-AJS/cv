@@ -13,8 +13,13 @@
             border: 1px solid red;
             font-family: "conthrax";
             font-size: 60px;
+            color: grey;
             writing-mode: vertical-lr;
             text-orientation: upright;
+
+            span {
+                border: 1px solid red;
+            }
         }
     }
 }

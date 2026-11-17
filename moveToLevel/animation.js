@@ -1,13 +1,11 @@
 export const detect = async (container, helper, base) => {
-    const list = {
-        text: {
-            appearBlur: base + "/moveToLevel/text.js"
-        }
-    }
-
     const animations = Array.from(container.querySelectorAll("[data-animation]"))
-    let prepare = {}
+    let prepared = {}
     let error = {}
+
+    const list = {
+        text: base + "/moveToLevel/text.js"
+    }
 
     await helper.resolver.imports(list)
 
@@ -24,16 +22,21 @@ export const detect = async (container, helper, base) => {
         const type = list[data?.[0]] ? data[0] : null
         const animation = list[data?.[0]] ? data[1] : null
 
-
         if (!type || !animation) {
-            error[item.id] = {}
-            error[item.id]["type"] = type
-            error[item.id]["animation"] = animation
+            error[item.id] = {
+                name: data[1],
+                family: data[0],
+                mod: list[data[0]]?.[data[1]] || null,
+                ref: item
+            }
         } else {
-            const reg = prepare[item.id] = {}
-            reg["ref"] = item
-            reg["type"] = data[0]
-            reg["animation"] = data[1]
+            const reg = prepared[item.id] = {}
+            reg["animation"] = {
+                name: data[1],
+                family: data[0],
+                mod: list[data[0]][data[1]],
+                ref: item
+            }
         }
 
     })
@@ -42,5 +45,5 @@ export const detect = async (container, helper, base) => {
         console.error("HELPER ANIMATION ERROR:", error)
         return error
     }
-    return prepare
+    return prepared
 }
