@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'conthrax'; 
+    src: url('./../resources/fonts/Conthrax-SemiBold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

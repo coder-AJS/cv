@@ -1,15 +1,17 @@
-const list = {
-    text: {
-        appearBlur: "./text.js"
+export const detect = async (container, helper, base) => {
+    const list = {
+        text: {
+            appearBlur: base + "/moveToLevel/text.js"
+        }
     }
-}
 
-export const detect = (container) => {
     const animations = Array.from(container.querySelectorAll("[data-animation]"))
     let prepare = {}
+    let error = {}
+
+    await helper.resolver.imports(list)
 
     animations.forEach(item => {
-        let error = {}
 
         if (!item.id) {
             console.error("HELPER ANIMATIONS ERROR: not id in", item)
@@ -20,7 +22,8 @@ export const detect = (container) => {
         if (!data) console.error("HELPER ANIMATIONS ERROR: no data-animation", item)
 
         const type = list[data?.[0]] ? data[0] : null
-        const animation = list[data?.[0]]?.[data?.[1]] ? data[1] : null
+        const animation = list[data?.[0]] ? data[1] : null
+
 
         if (!type || !animation) {
             error[item.id] = {}
@@ -33,7 +36,11 @@ export const detect = (container) => {
             reg["animation"] = data[1]
         }
 
-        if (Object.keys(error).length) console.error("HELPER ANIMATION ERROR:", error)
     })
+
+    if (Object.keys(error).length) {
+        console.error("HELPER ANIMATION ERROR:", error)
+        return error
+    }
     return prepare
 }

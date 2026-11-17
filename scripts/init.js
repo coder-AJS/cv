@@ -11,7 +11,7 @@ const controls = {
 
 const controlInit = (controls, helper) => {
     /* prepare */
-    controls.animation.init()
+    controls.animation.init(helper)
     const reactives = controls.reactives.init(helper)
     controls.scroll.init(reactives, helper)
 }
@@ -22,8 +22,8 @@ const init = async () => {
     let level = await import(base + "/scripts/level.js")
     level = await level.init()
 
-    await level.helper.resolver.paths(controls)
-    controlInit(controls, level.helper)
+    await level.helper.resolver.imports(controls)
+    controlInit(controls, level.helper, base)
 }
 
 init()

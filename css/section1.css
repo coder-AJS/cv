@@ -11,6 +11,10 @@
             width: 200px;
             height: 100%;
             border: 1px solid red;
+            font-family: "conthrax";
+            font-size: 60px;
+            writing-mode: vertical-lr;
+            text-orientation: upright;
         }
     }
 }

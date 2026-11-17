@@ -25,24 +25,29 @@ export const appearBlur = async ({
     blur = 100,
     scale = 3,
     transition = 500,
-    delay = 200
+    delay = 200,
+    mode = "prepare"
 } = {}) => {
     if (!box || !text || !isNumber(blur) || !isNumber(scale) || !isNumber(transition) || !isNumber(delay)) return onError()
 
-    const boxes = addText(box, text)
-    boxes.forEach(item => updateProps(item, {
-        opacity: 0,
-        transition: transition + "ms",
-        filter: `blur(${blur}px)`,
-        transform: `scale(${scale})`
-    }))
-    await frames(4)
-
-    for (const item of boxes) {
-        updateProps(item, { opacity: 1, filter: "blur(0px)", transform: `scale(1)` })
-        await new Promise(resolve => setTimeout(resolve, delay))
+    if (mode === "prepare") {
+        const boxes = addText(box, text)
+        boxes.forEach(item => updateProps(item, {
+            opacity: 0,
+            transition: transition + "ms",
+            filter: `blur(${blur}px)`,
+            transform: `scale(${scale})`
+        }))
+        await frames(4)
     }
-    await new Promise(resolve => setTimeout(resolve, transition))
+
+    if (mode === "init") {
+        for (const item of boxes) {
+            updateProps(item, { opacity: 1, filter: "blur(0px)", transform: `scale(1)` })
+            await new Promise(resolve => setTimeout(resolve, delay))
+        }
+        await new Promise(resolve => setTimeout(resolve, transition))
+    }
     return
 }
 
