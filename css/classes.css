@@ -25,6 +25,14 @@
     justify-content: center;
 }
 
+.FJ_center {
+    justify-content: center;
+}
+
+.FA_center {
+    align-items: center;
+}
+
 .FRow {
     display: flex;
 }

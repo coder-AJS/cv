@@ -5,10 +5,13 @@
 }
 
 :root {
+    /* colors */
+    --white1: rgb(200, 200, 200);
+
     /* wellcome */
     --wellcomeHeight: 100vh;
     --wellcome_BGsize: 6;
-    --fakeBack: rgb(9, 26, 47);
+    --bodyColor: rgb(16, 16, 17);
 
     /* scroll */
     --scrollPos: 0;

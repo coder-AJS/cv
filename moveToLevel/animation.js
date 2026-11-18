@@ -30,8 +30,7 @@ export const detect = async (container, helper, base) => {
                 ref: item
             }
         } else {
-            const reg = prepared[item.id] = {}
-            reg["animation"] = {
+            prepared[item.id] = {
                 name: data[1],
                 family: data[0],
                 mod: list[data[0]][data[1]],

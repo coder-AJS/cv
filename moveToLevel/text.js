@@ -2,12 +2,46 @@ const onError = () => {
     return console.trace("error in required parametres")
 }
 
-const addText = (box, text) => {
+const addStyles = () => {
+    const textStyle = document.head.appendChild(document.createElement("style"))
+    textStyle.classList.add("motion-textStyle")
+    textStyle.textContent = `
+        .textMotion-charCont {
+            width: 100%;
+            min-width: 0;
+            height: 100%;
+            min-height: 0;
+
+            .charBox {
+                width: fit-content;
+                height: fit-content;
+                border: 1px solid green;
+            }
+        }
+
+        .FCenter { display: flex; align-items: center; justify-content: center; }
+    `
+}
+
+const addBoxes = (box, text, helper) => {
+    if (!document.head.querySelector("motion-textStyle")) addStyles()
+
+    box.textContent = ""
     for (const item of Array.from(text)) {
-        const charBox = box.appendChild(document.createElement("span"))
-        charBox.textContent = item === " " ? "\u00A0" : item
+        const charCont = helper.dom.inject({
+            tag: "div",
+            parent: box,
+            className: "textMotion-charCont FCenter"
+        })
+
+        helper.dom.inject({
+            tag: "span",
+            parent: charCont,
+            className: "charBox FCenter",
+            content: item === " " ? "\u00A0" : item
+        })
     }
-    return box.querySelectorAll("span")
+    return box.querySelectorAll(".charBox")
 }
 
 const frames = async (frames) => { for (let i = frames; i >= 0; i--) { await new Promise(requestAnimationFrame) }; return }
@@ -26,13 +60,18 @@ export const appearBlur = async ({
     scale = 3,
     transition = 500,
     delay = 200,
-    mode = "prepare"
+    mode = "prepare",
+
+    helper = null
 } = {}) => {
+
+    helper.dom.info()
     if (!box || !text || !isNumber(blur) || !isNumber(scale) || !isNumber(transition) || !isNumber(delay)) return onError()
 
     if (mode === "prepare") {
-        const boxes = addText(box, text)
+        const boxes = addBoxes(box, text, helper)
         boxes.forEach(item => updateProps(item, {
+            userSelect: "none",
             opacity: 0,
             transition: transition + "ms",
             filter: `blur(${blur}px)`,

@@ -8,18 +8,12 @@
         border: 1px solid gray;
 
         .title {
-            width: 200px;
+            width: fit-content;
             height: 100%;
-            border: 1px solid red;
+            border: 1px solid rgb(68, 0, 255);
             font-family: "conthrax";
-            font-size: 60px;
-            color: grey;
-            writing-mode: vertical-lr;
-            text-orientation: upright;
-
-            span {
-                border: 1px solid red;
-            }
+            font-size: 120px;
+            color: var(--white1);
         }
     }
 }
